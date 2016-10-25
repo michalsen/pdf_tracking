@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * @file
+ * SN Tracking install file.
+ */
+
+
+function pdf_tracking_schema() {
+
+ $schema['pdf_tracking_management'] = array(
+    'description'     => 'PDF files for tracking.',
+      'fields'        => array(
+       'pdf_id'    => array(
+         'type'       => 'serial',
+         'not null'   => TRUE),
+       'pdf_name'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'pdf_url'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+        'ad_title'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'ad_copy'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'ga_title'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'show_page_id'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'thankyou_page_id'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+        'audit_title'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'audit_copy'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'audit_url'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'audit_url_title'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+        ),
+      'primary key' => array('pdf_id'),
+  );
+
+ $schema['pdf_nid'] = array(
+    'description'     => 'Pages mapped for PDFs.',
+      'fields'        => array(
+       'pdf_id'  => array(
+         'type'       => 'int',
+         'length'     => 6,
+         'not null'   => TRUE),
+       'nid'  => array(
+         'type'       => 'int',
+         'length'     => 6,
+         'not null'   => TRUE),
+        ),
+  );
+
+ $schema['pdf_tracking'] = array(
+    'description'     => 'Tracking of PDF file downloads.',
+      'fields'        => array(
+       'tracking_id'  => array(
+         'type'       => 'serial',
+         'not null'   => TRUE),
+       'pdf_name'       => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+       'sn_tracking'    => array(
+         'type'       => 'varchar',
+         'length'     => 255,
+         'not null'   => FALSE),
+        ),
+     'primary key' => array('tracking_id'),
+  );
+    return $schema;
+
+}

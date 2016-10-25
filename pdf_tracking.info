@@ -1,0 +1,10 @@
+; $Id: $
+name = PDF Tracking
+description = Track PDF Downloads
+
+package = Custom
+scripts[] = pdf_tracking.js
+
+version = "7.x-1.10"
+core = "7.x"
+
